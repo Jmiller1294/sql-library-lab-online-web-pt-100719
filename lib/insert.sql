@@ -14,3 +14,9 @@ INSERT INTO character_books (id, book_id, character_id) VALUES (1, 1, 1), (2, 1,
 
 INSERT INTO character_books (id, book_id, character_id) VALUES (9, 4, 5), (10, 4, 6), (11, 5, 6), (12, 6, 6), (13, 4, 7), (14, 5, 7), (15, 6, 7), (16, 4, 8);
 
+"SELECT characters.name, COUNT(*) AS book_count
+  FROM character_books
+  INNER JOIN characters
+  ON characters.id = character_books.character_id
+  GROUP BY characters.name
+  ORDER BY book_count DESC 
